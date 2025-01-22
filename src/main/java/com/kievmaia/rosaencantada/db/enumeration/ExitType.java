@@ -13,8 +13,8 @@ public enum ExitType {
 
     private final String translation;
 
-    public static EntryType getTranslation(String translation) {
-        return Arrays.stream(EntryType.values())
+    public static ExitType getTranslation(String translation) {
+        return Arrays.stream(ExitType.values())
                 .filter(item -> item.getTranslation().equals(translation))
                 .findFirst()
                 .orElseThrow(
