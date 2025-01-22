@@ -1,0 +1,25 @@
+services:
+  postgres:
+    container_name: rosaencantada-postgres
+    restart: always
+    image: 'postgres:latest'
+    volumes:
+      - ./dockerfiles/db:/docker-entrypoint-initdb.d
+    environment:
+      - 'POSTGRES_DB=rosaencantada'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '5432:5432'
+
+#  localstack:
+#    container_name: rosaencantada-localstack
+#    image: localstack/localstack:3.1.0
+#    ports:
+#      - "4566:4566"
+#    environment:
+#      - DOCKER_HOST=unix:///var/run/docker.sock
+#      - SERVICES=sns,sqs
+#    volumes:
+#      - ./dockerfiles/localstack-script:/etc/localstack/init/ready.d
+#      - /var/run/docker.sock:/var/run/docker.sock
