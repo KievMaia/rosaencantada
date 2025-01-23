@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "subcategorias")
+@Table(schema = "rosaencantada", name = "subcategorias")
 public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

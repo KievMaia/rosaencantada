@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "estoque")
+@Table(schema = "rosaencantada", name = "estoque")
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

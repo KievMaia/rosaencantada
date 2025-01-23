@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "categorias")
+@Table(schema = "rosaencantada", name = "categorias")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

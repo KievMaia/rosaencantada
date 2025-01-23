@@ -12,28 +12,28 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "fornecedores")
+@Table(schema = "rosaencantada", name = "fornecedores")
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 200)
+    @Column(name = "nome", nullable = false, length = 200)
     private String name;
 
-    @Column(length = 20, unique = true)
+    @Column(name = "cnpj", length = 20, unique = true)
     private String cnpj;
 
-    @Column(length = 20)
+    @Column(name = "telefone", length = 20)
     private String phone;
 
-    @Column(length = 50, unique = true)
+    @Column(name = "email", length = 50, unique = true)
     private String email;
 
-    @Column(length = 200)
+    @Column(name = "endereco", length = 200)
     private String address;
 
-    @Column(name = "data_cadastro", nullable = false)
+    @Column(name = "data_criacao", nullable = false)
     @CreationTimestamp
     private LocalDateTime createdDate;
 }
