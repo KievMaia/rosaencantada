@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
-@Builder
+@Builder(setterPrefix = "set")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -24,6 +24,9 @@ public class Category {
 
     @Column(nullable = false, length = 150)
     private String name;
+
+    @OneToMany(mappedBy = "category")
+    private Set<SubCategory> subCategories;
 
     @OneToMany(mappedBy = "category")
     private Set<Product> products;

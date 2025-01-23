@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
+@Builder(setterPrefix = "set")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
