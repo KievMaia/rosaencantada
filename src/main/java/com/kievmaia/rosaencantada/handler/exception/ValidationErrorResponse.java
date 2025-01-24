@@ -1,6 +1,5 @@
 package com.kievmaia.rosaencantada.handler.exception;
 
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.List;
