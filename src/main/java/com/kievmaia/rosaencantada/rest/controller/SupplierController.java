@@ -34,7 +34,7 @@ public class SupplierController {
     public ResponseEntity<PagedResponse<SupplierResponseDTO>> getSuppliers(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id") String sortBy
+            @RequestParam(defaultValue = "name") String sortBy
     ) {
         var pageable = PageRequest.of(page, size, Sort.by(sortBy));
         return ResponseEntity.ok(service.getAllSuppliers(pageable));
