@@ -17,7 +17,6 @@ public class SupplierMapper {
             .setPhone(dto.getPhone())
             .setEmail(dto.getEmail())
             .setAddress(dto.getAddress())
-            .setCreatedDate(dto.getCreatedDate())
             .build();
 
     public Function<Supplier, SupplierResponseDTO> entityToResponseDTO = entity -> SupplierResponseDTO.builder()
@@ -28,6 +27,7 @@ public class SupplierMapper {
             .setEmail(entity.getEmail())
             .setAddress(entity.getAddress())
             .setCreatedDate(entity.getCreatedDate())
+            .setUpdatedDate(entity.getUpdatedDate())
             .build();
 
     public Function<Supplier, SupplierSummaryDTO> entityToSummaryDTO = entity -> SupplierSummaryDTO.builder()
@@ -43,7 +43,6 @@ public class SupplierMapper {
                 .setPhone(dto.getPhone() != null ? dto.getPhone() : existingDto.getPhone())
                 .setEmail(dto.getEmail() != null ? dto.getEmail() : existingDto.getEmail())
                 .setAddress(dto.getAddress() != null ? dto.getAddress() : existingDto.getAddress())
-                .setCreatedDate(existingDto.getCreatedDate())
                 .build();
     }
 

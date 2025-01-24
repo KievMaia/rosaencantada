@@ -19,4 +19,5 @@ public class SupplierResponseDTO {
     private String email;
     private String address;
     private LocalDateTime createdDate;
+    private LocalDateTime updatedDate;
 }

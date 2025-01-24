@@ -3,6 +3,7 @@ package com.kievmaia.rosaencantada.db.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -33,7 +34,11 @@ public class Supplier {
     @Column(name = "endereco", length = 200)
     private String address;
 
-    @Column(name = "data_criacao", nullable = false)
+    @Column(name = "data_criacao", updatable = false)
     @CreationTimestamp
     private LocalDateTime createdDate;
+
+    @Column(name = "data_atualizacao", nullable = false, insertable = false)
+    @UpdateTimestamp
+    private LocalDateTime updatedDate;
 }
