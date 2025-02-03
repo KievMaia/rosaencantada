@@ -1,12 +1,15 @@
 package com.kievmaia.rosaencantada.rest.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Getter
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class PagedResponse<T> {
     private List<T> content;
     private int page;

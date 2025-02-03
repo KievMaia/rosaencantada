@@ -25,6 +25,7 @@ CREATE TABLE "rosaencantada"."produtos"
 (
     "id"               SERIAL PRIMARY KEY,
     "id_categoria"     integer,
+    "sku"              varchar(50)    NOT NULL,
     "nome"             varchar(150)   NOT NULL,
     "descricao"        varchar(500),
     "preco"            decimal(10, 2) NOT NULL,

@@ -38,7 +38,7 @@ public class Supplier {
     @CreationTimestamp
     private LocalDateTime createdDate;
 
-    @Column(name = "data_atualizacao", nullable = false, insertable = false)
+    @Column(name = "data_atualizacao", insertable = false)
     @UpdateTimestamp
     private LocalDateTime updatedDate;
 }

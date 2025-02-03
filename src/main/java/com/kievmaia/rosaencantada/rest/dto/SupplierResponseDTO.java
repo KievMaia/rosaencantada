@@ -1,5 +1,6 @@
 package com.kievmaia.rosaencantada.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Builder(setterPrefix = "set")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SupplierResponseDTO {
     private Long id;
     private String name;

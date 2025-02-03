@@ -29,6 +29,9 @@ public class Product {
     @OneToOne(mappedBy = "product")
     private Inventory inventory;
 
+    @Column(name = "sku", nullable = false, length = 50)
+    private String sku;
+
     @Column(name = "nome", nullable = false, length = 150)
     private String name;
 
