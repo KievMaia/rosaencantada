@@ -22,13 +22,13 @@ public class SupplierService {
 
     @Transactional
     public SupplierSummaryDTO save(SupplierRequestDTO requestDTO) {
-        var entity = mapper.requestDTOToEntity.apply(requestDTO);
+        var entity = mapper.requestDTOToEntity(requestDTO);
         var supplier = repository.save(entity);
-        return mapper.entityToSummaryDTO.apply(supplier);
+        return mapper.entityToSummaryDTO(supplier);
     }
 
     public PagedResponse<SupplierResponseDTO> getAllSuppliers(Pageable pageable) {
-        var page = repository.findAll(pageable).map(mapper.entityToResponseDTO);
+        var page = repository.findAll(pageable).map(mapper::entityToResponseDTO);
         return new PagedResponse<>(
                 page.getContent(),
                 page.getNumber(),
@@ -42,16 +42,16 @@ public class SupplierService {
     public SupplierResponseDTO getSupplier(Long supplierId) {
         var supplier = repository.findById(supplierId).orElseThrow(
                 () -> new EntityNotFoundException("Supplier not found"));
-        return mapper.entityToResponseDTO.apply(supplier);
+        return mapper.entityToResponseDTO(supplier);
     }
 
     @Transactional
     public SupplierSummaryDTO updateSupplier(Long id, SupplierRequestDTO dto) {
         var supplier = this.getSupplier(id);
-        var dtoSupplierToUpdate = mapper.toUpdatedDTO(dto).apply(supplier);
-        var entityToUpdate = mapper.requestDTOToEntity.apply(dtoSupplierToUpdate);
+        var dtoSupplierToUpdate = mapper.toUpdatedDTO(supplier, dto);
+        var entityToUpdate = mapper.requestDTOToEntity(dtoSupplierToUpdate);
         var supplierUpdated = repository.save(entityToUpdate);
-        return mapper.entityToSummaryDTO.apply(supplierUpdated);
+        return mapper.entityToSummaryDTO(supplierUpdated);
     }
 
     public void deleteSupplier(Long id) {

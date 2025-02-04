@@ -117,7 +117,7 @@ class SupplierControllerIT extends AbstractIntegrationTest {
                 .contentType(TestConfigs.CONTENT_TYPE_JSON)
                 .body(updatedRequestDTO)
                 .when()
-                .patch("/{id}", createdSupplier.getId())
+                .put("/{id}", createdSupplier.getId())
                 .then()
                 .statusCode(200)
                 .extract()

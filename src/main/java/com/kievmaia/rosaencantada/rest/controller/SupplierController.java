@@ -40,7 +40,7 @@ public class SupplierController {
         return ResponseEntity.ok(service.getAllSuppliers(pageable));
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<SupplierSummaryDTO> updateSupplier(@PathVariable Long id,
                                                              @RequestBody SupplierRequestDTO dto) {
         var updatedSupplier = service.updateSupplier(id, dto);
