@@ -6,8 +6,6 @@ import com.kievmaia.rosaencantada.rest.dto.SupplierResponseDTO;
 import com.kievmaia.rosaencantada.rest.dto.SupplierSummaryDTO;
 import org.springframework.stereotype.Component;
 
-import java.util.function.Function;
-
 @Component
 public class SupplierMapper {
 
