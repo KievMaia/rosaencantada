@@ -1,21 +1,20 @@
-package com.kievmaia.rosaencantada.mapper.supplier;
+package com.kievmaia.rosaencantada.mapper.category;
 
+import com.kievmaia.rosaencantada.db.entity.Category;
 import com.kievmaia.rosaencantada.db.entity.Supplier;
+import com.kievmaia.rosaencantada.rest.dto.category.CategoryRequestDTO;
+import com.kievmaia.rosaencantada.rest.dto.category.CategorySummaryDTO;
 import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierRequestDTO;
 import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierResponseDTO;
 import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierSummaryDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SupplierMapper {
+public class CategoryMapper {
 
-    public Supplier requestDTOToEntity(SupplierRequestDTO dto) {
-        return Supplier.builder()
+    public Category requestDTOToEntity(CategoryRequestDTO dto) {
+        return Category.builder()
                 .setName(dto.getName())
-                .setCnpj(dto.getCnpj())
-                .setPhone(dto.getPhone())
-                .setEmail(dto.getEmail())
-                .setAddress(dto.getAddress())
                 .build();
     }
 
@@ -32,8 +31,8 @@ public class SupplierMapper {
                 .build();
     }
 
-    public SupplierSummaryDTO entityToSummaryDTO(Supplier entity) {
-        return SupplierSummaryDTO.builder()
+    public CategorySummaryDTO entityToSummaryDTO(Category entity) {
+        return CategorySummaryDTO.builder()
                 .setId(entity.getId())
                 .setName(entity.getName())
                 .build();

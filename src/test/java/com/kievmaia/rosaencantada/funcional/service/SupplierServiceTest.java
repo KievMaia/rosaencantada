@@ -47,7 +47,6 @@ class SupplierServiceTest {
     @BeforeEach
     void setup() {
         supplierRequestDTO = SupplierRequestDTO.builder()
-                .setId(1L)
                 .setName("Loja do brás")
                 .build();
 
@@ -115,7 +114,6 @@ class SupplierServiceTest {
     @DisplayName("JUnit test for Given Supplier When Update Supplier Then Return Updated Supplier")
     void testGivenSupplier_WhenUpdateSupplier_ThenReturnUpdatedSupplier() {
         var updatedRequestDTO = SupplierRequestDTO.builder()
-                .setId(supplier.getId())
                 .setName("Loja do brás atualizado")
                 .build();
 

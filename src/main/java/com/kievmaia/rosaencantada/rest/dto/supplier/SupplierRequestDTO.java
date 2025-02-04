@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SupplierRequestDTO {
-    @Nullable
-    private Long id;
     @NotNull
     private String name;
     @Nullable

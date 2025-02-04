@@ -54,6 +54,7 @@ public class SupplierService {
         return mapper.entityToSummaryDTO(supplierUpdated);
     }
 
+    @Transactional
     public void deleteSupplier(Long id) {
         this.getSupplier(id);
         repository.deleteById(id);
