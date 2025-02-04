@@ -112,6 +112,7 @@ class SupplierControllerIT extends AbstractIntegrationTest {
     void testUpdateSupplier() throws Exception {
         var updatedRequestDTO = buildSupplierRequestDTO();
         updatedRequestDTO.setName("Fornecedor Teste Atualizado");
+        updatedRequestDTO.setCnpj("12345678000110");
 
         var content = given().spec(specification)
                 .contentType(TestConfigs.CONTENT_TYPE_JSON)
