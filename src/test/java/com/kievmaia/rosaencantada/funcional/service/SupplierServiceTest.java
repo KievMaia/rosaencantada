@@ -2,10 +2,11 @@ package com.kievmaia.rosaencantada.funcional.service;
 
 import com.kievmaia.rosaencantada.db.entity.Supplier;
 import com.kievmaia.rosaencantada.db.repository.ISupplierRepository;
-import com.kievmaia.rosaencantada.mapper.SupplierMapper;
-import com.kievmaia.rosaencantada.rest.dto.SupplierRequestDTO;
-import com.kievmaia.rosaencantada.rest.dto.SupplierResponseDTO;
-import com.kievmaia.rosaencantada.rest.dto.SupplierSummaryDTO;
+import com.kievmaia.rosaencantada.handler.exception.EntityNotFoundException;
+import com.kievmaia.rosaencantada.mapper.supplier.SupplierMapper;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierRequestDTO;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierResponseDTO;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierSummaryDTO;
 import com.kievmaia.rosaencantada.service.SupplierService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -156,6 +157,17 @@ class SupplierServiceTest {
         when(repository.findById(supplier.getId())).thenReturn(Optional.of(supplier));
         service.deleteSupplier(supplier.getId());
         verify(repository, times(1)).deleteById(supplier.getId());
+    }
+
+    @Test
+    @DisplayName("JUnit test for When Get Non-Existent Supplier By Id Then Throw EntityNotFoundException")
+    void testWhenGetNonExistentSupplierById_ThenThrowEntityNotFoundException() {
+        var nonExistentId = 999L;
+        when(repository.findById(nonExistentId)).thenReturn(Optional.empty());
+
+        assertThrows(EntityNotFoundException.class, () -> service.getSupplier(nonExistentId));
+        verify(repository, times(1)).findById(nonExistentId);
+        verify(mapper, never()).entityToResponseDTO(any());
     }
 }
 

@@ -2,11 +2,11 @@ package com.kievmaia.rosaencantada.service;
 
 import com.kievmaia.rosaencantada.db.repository.ISupplierRepository;
 import com.kievmaia.rosaencantada.handler.exception.EntityNotFoundException;
-import com.kievmaia.rosaencantada.mapper.SupplierMapper;
+import com.kievmaia.rosaencantada.mapper.supplier.SupplierMapper;
 import com.kievmaia.rosaencantada.rest.dto.PagedResponse;
-import com.kievmaia.rosaencantada.rest.dto.SupplierRequestDTO;
-import com.kievmaia.rosaencantada.rest.dto.SupplierResponseDTO;
-import com.kievmaia.rosaencantada.rest.dto.SupplierSummaryDTO;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierRequestDTO;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierResponseDTO;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierSummaryDTO;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.kievmaia.rosaencantada.rest.dto;
+package com.kievmaia.rosaencantada.rest.dto.supplier;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

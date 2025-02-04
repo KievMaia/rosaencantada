@@ -1,4 +1,4 @@
-package com.kievmaia.rosaencantada.rest.dto;
+package com.kievmaia.rosaencantada.rest.dto.supplier;
 
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;

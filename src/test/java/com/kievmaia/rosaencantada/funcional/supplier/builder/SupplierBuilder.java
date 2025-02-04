@@ -1,6 +1,6 @@
 package com.kievmaia.rosaencantada.funcional.supplier.builder;
 
-import com.kievmaia.rosaencantada.rest.dto.SupplierRequestDTO;
+import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierRequestDTO;
 
 public class SupplierBuilder {
     public static SupplierRequestDTO buildSupplierRequestDTO() {

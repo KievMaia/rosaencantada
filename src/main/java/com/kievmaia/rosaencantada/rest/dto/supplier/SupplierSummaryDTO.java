@@ -1,4 +1,4 @@
-package com.kievmaia.rosaencantada.rest.dto;
+package com.kievmaia.rosaencantada.rest.dto.supplier;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
