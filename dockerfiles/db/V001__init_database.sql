@@ -15,5 +15,7 @@ $do$;
 
 create schema if not exists rosaencantada;
 
+create extension if not exists unaccent;
+
 grant all privileges on database "rosaencantada" to "postgres";
 grant usage on schema rosaencantada to "postgres";
