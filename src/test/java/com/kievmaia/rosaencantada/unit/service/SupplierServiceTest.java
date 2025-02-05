@@ -1,4 +1,4 @@
-package com.kievmaia.rosaencantada.funcional.service;
+package com.kievmaia.rosaencantada.unit.service;
 
 import com.kievmaia.rosaencantada.db.entity.Supplier;
 import com.kievmaia.rosaencantada.db.repository.ISupplierRepository;

@@ -18,7 +18,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.kievmaia.rosaencantada.funcional.supplier.builder.SupplierBuilder.buildSupplierRequestDTO;
+import static com.kievmaia.rosaencantada.unit.builder.SupplierBuilder.buildSupplierRequestDTO;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
