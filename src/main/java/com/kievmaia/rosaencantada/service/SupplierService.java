@@ -41,7 +41,13 @@ public class SupplierService {
 
     public SupplierResponseDTO getSupplier(Long supplierId) {
         var supplier = repository.findById(supplierId).orElseThrow(
-                () -> new EntityNotFoundException("Supplier not found"));
+                () -> new EntityNotFoundException("Supplier %d not found", supplierId));
+        return mapper.entityToResponseDTO(supplier);
+    }
+
+    public SupplierResponseDTO getSupplierByName(String supplierName) {
+        var supplier = repository.findByNameIgnoreCase(supplierName).orElseThrow(
+                () -> new EntityNotFoundException("Supplier %s not found", supplierName));
         return mapper.entityToResponseDTO(supplier);
     }
 

@@ -30,6 +30,11 @@ public class SupplierController {
         return ResponseEntity.ok(service.getSupplier(supplierId));
     }
 
+    @GetMapping("/byname/{supplierName}")
+    public ResponseEntity<SupplierResponseDTO> getSupplierByName(@PathVariable String supplierName) {
+        return ResponseEntity.ok(service.getSupplierByName(supplierName));
+    }
+
     @GetMapping("/all")
     public ResponseEntity<PagedResponse<SupplierResponseDTO>> getSuppliers(
             @RequestParam(defaultValue = "0") int page,

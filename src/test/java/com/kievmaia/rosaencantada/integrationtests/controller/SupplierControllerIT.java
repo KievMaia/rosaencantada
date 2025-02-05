@@ -86,6 +86,25 @@ class SupplierControllerIT extends AbstractIntegrationTest {
 
     @Test
     @Order(3)
+    void testGetSupplierByName() throws Exception {
+        var content = given().spec(specification)
+                .when()
+                .get("/byname/{supplierName}", createdSupplier.getName())
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .asString();
+
+        var supplierRecovered = objectMapper.readValue(content, SupplierResponseDTO.class);
+
+        assertNotNull(supplierRecovered);
+        assertThat(supplierRecovered.getName()).isEqualTo(createdSupplier.getName());
+    }
+
+
+    @Test
+    @Order(4)
     void testGetAllSuppliers() throws JsonProcessingException {
         var content = given().spec(specification)
                 .when()
@@ -108,7 +127,7 @@ class SupplierControllerIT extends AbstractIntegrationTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void testUpdateSupplier() throws Exception {
         var updatedRequestDTO = buildSupplierRequestDTO();
         updatedRequestDTO.setName("Fornecedor Teste Atualizado");
@@ -132,7 +151,7 @@ class SupplierControllerIT extends AbstractIntegrationTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     void testDeleteSupplier() {
         given().spec(specification)
                 .when()

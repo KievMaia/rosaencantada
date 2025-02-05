@@ -93,6 +93,40 @@ class SupplierServiceTest {
     }
 
     @Test
+    @DisplayName("JUnit test for When Get Non-Existent Supplier By Id Then Throw EntityNotFoundException")
+    void testWhenGetNonExistentSupplierById_ThenThrowEntityNotFoundException() {
+        var nonExistentId = 999L;
+        when(repository.findById(nonExistentId)).thenReturn(Optional.empty());
+
+        assertThrows(EntityNotFoundException.class, () -> service.getSupplier(nonExistentId));
+        verify(repository, times(1)).findById(nonExistentId);
+        verify(mapper, never()).entityToResponseDTO(any());
+    }
+
+    @Test
+    @DisplayName("JUnit test for Given Supplier When Get Supplier By Name Then Return Supplier")
+    void testGivenSupplier_WhenGetSupplierByName_ThenReturnSupplier() {
+        when(repository.findByNameIgnoreCase(supplier.getName())).thenReturn(Optional.ofNullable(supplier));
+        when(mapper.entityToResponseDTO(supplier)).thenReturn(supplierResponseDTO);
+
+        var supplierResponse = service.getSupplierByName(supplier.getName());
+
+        assertNotNull(supplierResponse);
+        assertEquals(supplier.getName(), supplierResponse.getName());
+    }
+
+    @Test
+    @DisplayName("JUnit test for When Get Non-Existent Supplier By Name Then Throw EntityNotFoundException")
+    void testWhenGetNonExistentSupplierByName_ThenThrowEntityNotFoundException() {
+        var nonExistentName = "Fornecedor inexistente";
+        when(repository.findByNameIgnoreCase(nonExistentName)).thenReturn(Optional.empty());
+
+        assertThrows(EntityNotFoundException.class, () -> service.getSupplierByName(nonExistentName));
+        verify(repository, times(1)).findByNameIgnoreCase(nonExistentName);
+        verify(mapper, never()).entityToResponseDTO(any());
+    }
+
+    @Test
     @DisplayName("JUnit test for Given Supplier When Get All Suppliers Then Return List of Suppliers")
     void testGivenSuppliers_WhenGetAllSuppliers_ThenReturnSuppliers() {
         var pageable = PageRequest.of(0, 10);
@@ -155,17 +189,6 @@ class SupplierServiceTest {
         when(repository.findById(supplier.getId())).thenReturn(Optional.of(supplier));
         service.deleteSupplier(supplier.getId());
         verify(repository, times(1)).deleteById(supplier.getId());
-    }
-
-    @Test
-    @DisplayName("JUnit test for When Get Non-Existent Supplier By Id Then Throw EntityNotFoundException")
-    void testWhenGetNonExistentSupplierById_ThenThrowEntityNotFoundException() {
-        var nonExistentId = 999L;
-        when(repository.findById(nonExistentId)).thenReturn(Optional.empty());
-
-        assertThrows(EntityNotFoundException.class, () -> service.getSupplier(nonExistentId));
-        verify(repository, times(1)).findById(nonExistentId);
-        verify(mapper, never()).entityToResponseDTO(any());
     }
 }
 
