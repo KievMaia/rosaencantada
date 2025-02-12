@@ -116,11 +116,6 @@ class CategoryServiceTest {
                 .setName("Categoria atualizado")
                 .build();
 
-        var existingResponseDTO = CategoryResponseDTO.builder()
-                .setId(category.getId())
-                .setName(category.getName())
-                .build();
-
         var updatedSupplier = Category.builder()
                 .setId(category.getId())
                 .setName(updatedRequestDTO.getName())

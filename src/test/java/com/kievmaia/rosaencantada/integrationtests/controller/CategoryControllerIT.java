@@ -9,7 +9,6 @@ import com.kievmaia.rosaencantada.rest.dto.PagedResponse;
 import com.kievmaia.rosaencantada.rest.dto.category.CategoryRequestDTO;
 import com.kievmaia.rosaencantada.rest.dto.category.CategoryResponseDTO;
 import com.kievmaia.rosaencantada.rest.dto.category.CategorySummaryDTO;
-import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierSummaryDTO;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;

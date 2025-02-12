@@ -1,11 +1,9 @@
 package com.kievmaia.rosaencantada.mapper.category;
 
 import com.kievmaia.rosaencantada.db.entity.Category;
-import com.kievmaia.rosaencantada.db.entity.Supplier;
 import com.kievmaia.rosaencantada.rest.dto.category.CategoryRequestDTO;
 import com.kievmaia.rosaencantada.rest.dto.category.CategoryResponseDTO;
 import com.kievmaia.rosaencantada.rest.dto.category.CategorySummaryDTO;
-import com.kievmaia.rosaencantada.rest.dto.supplier.SupplierResponseDTO;
 import org.springframework.stereotype.Component;
 
 @Component
