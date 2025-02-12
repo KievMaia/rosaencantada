@@ -31,11 +31,11 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Set<Product> products;
 
-    @Column(name = "data_criacao", nullable = false)
+    @Column(name = "data_criacao", updatable = false)
     @CreationTimestamp
     private LocalDateTime createdDate;
 
-    @Column(name = "data_atualizacao")
+    @Column(name = "data_atualizacao", insertable = false)
     @UpdateTimestamp
     private LocalDateTime updatedDate;
 }
