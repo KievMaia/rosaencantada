@@ -46,8 +46,7 @@ public class CategoryService {
     }
 
     public CategoryResponseDTO getCategoryByName(String categoryName) {
-        var category = repository.findByNameIgnoreCase(categoryName).orElseThrow(
-                () -> new EntityNotFoundException("Category %s not found", categoryName));
+        var category = this.findByNameOrElseThrow(categoryName);
         return mapper.entityToResponseDTO(category);
     }
 
@@ -67,5 +66,10 @@ public class CategoryService {
     private Category findByIdOrElseThrow(Long id) {
         return repository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Category %s not found", id));
+    }
+
+    public Category findByNameOrElseThrow(String categoryName) {
+        return repository.findByNameIgnoreCase(categoryName).orElseThrow(
+                () -> new EntityNotFoundException("Category %s not found", categoryName));
     }
 }
